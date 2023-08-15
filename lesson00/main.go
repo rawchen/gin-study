@@ -3,11 +3,19 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 )
 
 func sayHello(w http.ResponseWriter, r *http.Request) {
-	_, err := fmt.Fprintln(w, "Hello Golang!")
+	fileByte, err := os.ReadFile("./lesson00/hello.txt")
 	if err != nil {
+		fmt.Printf(err.Error())
+		return
+	}
+	//_, err := fmt.Fprintln(w, "Hello Golang!")
+	_, err02 := fmt.Fprintln(w, string(fileByte))
+	if err02 != nil {
+		fmt.Printf(err02.Error())
 		return
 	}
 }
