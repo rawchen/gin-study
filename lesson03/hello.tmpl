@@ -5,8 +5,37 @@
 	<title>title</title>
 </head>
 <body>
-    <p>{{ .Name }}</p>
-    <p>{{ .Age }}</p>
+    <p>UUUUUUUUUUUUUUUUUUUUUU</p>
+    <p>{{- .u1.Name -}}</p>
+    <p>{{ .u1.Gender }}</p>
+    <p>{{ .u1.Age }}</p>
+    <p>MMMMMMMMMMMMMMMMMMMMMM</p>
+    <p>{{ .m1.name }}</p>
+    <p>{{ .m1.gender }}</p>
+    <p>{{ .m1.age }}</p>
+
+    {{/* 注释 */}}
+    {{ $v1 := 100 }}
+    {{ $age := .m1.age }}
+
+    <hr>
+    {{ if $v1 }}
+    {{ $v1 }}
+    {{ else }}
+    eeeeeeee
+    {{end}}
+
+    <hr>
+    {{ if lt .m1.age 18 }}
+    小于18
+    {{ else }}
+    大于等于18
+    {{ end }}
+
+    <hr>
+    {{ range $idx, $hobby := .hobby }}
+        <p>{{$idx}} - {{$hobby}}</p>
+    {{ end }}
 
 </body>
 </html>

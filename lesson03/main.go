@@ -8,7 +8,7 @@ import (
 
 type User struct {
 	Name   string
-	gender string
+	Gender string
 	Age    int
 }
 
@@ -21,12 +21,28 @@ func sayHello(w http.ResponseWriter, r *http.Request) {
 
 	u1 := User{
 		Name:   "名称",
-		gender: "男", // 测试小写开头
+		Gender: "男", // 测试小写开头
 		Age:    12,
 	}
 	// gender is an unexported field of struct type main.Usertemplate:
 
-	err02 := templ.Execute(w, u1)
+	m1 := map[string]interface{}{
+		"name":   "小王子",
+		"gender": "男",
+		"age":    18,
+	}
+
+	hobbyList := []string{
+		"足球",
+		"篮球",
+		"羽毛球",
+	}
+
+	err02 := templ.Execute(w, map[string]interface{}{
+		"u1":    u1,
+		"m1":    m1,
+		"hobby": hobbyList,
+	})
 	if err02 != nil {
 		fmt.Printf(err02.Error())
 		return
