@@ -35,6 +35,15 @@
     <hr>
     {{ range $idx, $hobby := .hobby }}
         <p>{{$idx}} - {{$hobby}}</p>
+    {{ else }}
+    没啥爱好
+    {{ end }}
+
+    <p>m1局部定义-----------------------</p>
+    {{ with .m1 }}
+    <p>{{ .name -}}</p>
+    <p>{{ .gender }}</p>
+    <p>{{ .age }}</p>
     {{ end }}
 
 </body>

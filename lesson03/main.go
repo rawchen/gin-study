@@ -29,7 +29,7 @@ func sayHello(w http.ResponseWriter, r *http.Request) {
 	m1 := map[string]interface{}{
 		"name":   "小王子",
 		"gender": "男",
-		"age":    18,
+		"age":    19,
 	}
 
 	hobbyList := []string{
